@@ -1,0 +1,87 @@
+<!DOCTYPE html> <meta content = "text/html;charset=utf-8"http-equiv = "Content-Type"> <meta content = "utf-8"http-equiv = "encoding"> 
+<html> 
+<body> 
+<script> 
+
+	function myFunction() {
+	var str = String(document.getElementById("originalText").value);
+	var trim = str.replace(/\s+/g, ' ');
+	var arr = trim.split(' ');
+	var taskNum = searchEmail2(trim, "TASK", "Short");
+	var request = searchEmail(trim, "Name:", "Requestor:");
+	var request2 = String(request).replace(/ame:/g, '');
+	var connection = "";
+	var accountNum = "";
+	var accountName = "";
+	var user = searchEmail(arr, "for:", "Fulfillment");
+	var user2 = String(user).replace(/,/g, ' ');
+	var mobile = searchEmail(arr, "number", "Employee");
+	var mob = String(mobile).replace(/[+64,]/g, '');
+	var email = searchEmail(arr, "Email", "Location");
+	var delivery = searchEmail(arr, "Location", "Phone");
+	var delivery2 = String(delivery).replace(/,/g, ' ');
+		var dict = {
+		"London Street Level 3": "Fonterra, 80 London Street, Hamilton Central Hamilton 3204",
+		"Reporoa Administration": "Fonterra State Highway 5, Reporoa, 3083",
+		"Te Rapa APC": "Fonterra, 1344 Te Rapa Road, Horotiu, Hamilton, 3288",
+		"Clandeboye Administration": "Fonterra, Corner of Canal & Rolleston Roads, Clandeboye, Temuka, 7986",
+		"Hautapu Cheese": "Fonterra, Victoria Road, Hautapu, Hamilton, 3493",
+		"Waitoa Supply Chain": "Fonterra, Corner Main Road and No 1 Road, Waitoa, 3380",
+		"Te Rapa Technical Centre Excellence": "Fonterra, 1344 Te Rapa Road, Horotiu,Hamilton, 3288",
+		"Fonterra Centre Level 1": "Fonterra, 109 Fanshawe Street, Auckland Central, 1010",
+		"Fonterra Centre Level 2": "Fonterra, 109 Fanshawe Street, Auckland Central, 1010",
+		"Fonterra Centre Level 3": "Fonterra, 109 Fanshawe Street, Auckland Central, 1010",
+		"Fonterra Centre Level 4": "Fonterra, 109 Fanshawe Street, Auckland Central, 1010",
+		"Fonterra Centre Level 5": "Fonterra, 109 Fanshawe Street, Auckland Central, 1010",
+		"Fonterra Centre Level 6": "Fonterra, 109 Fanshawe Street, Auckland Central, 1010",
+		"Farm Source Te Puke": "Fonterra, 251 Jellicoe Street, Te Puke, 3119",
+		"Edendale Powder 1 & 2": "Fonterra 60 North Road, Edendale, 9825",
+		"Morrinsville Site Services":"Fonterra,18 Allen St Morrinsville, 3300",
+		"Darfield Maintenance":"3792 West Coast Road, RD1, Darfield, 7571 ",
+		"Eltham Processed Cheese IWS":"14 Collingwood Street, Eltham, 4322 "
+	};
+	document.getElementById("notes").innerHTML = "Order Origin: " + taskNum + "\n" + "Request:" + request2 + "\n" + "Connection: " + "\n" + "Account Number:  " + "\n" + "Account Name: " + "\n" + "User: " + user2 + "\n" + "Mobile: " + mob + "\n" + "Staging Required: yes" + "\n" + "Email: " + email + "\n" + "Location: " + "\n" + dict[delivery2];
+	//console.log(dict[delivery2]);
+	
+
+}
+
+
+
+function searchEmail(text, startWord, endWord) {
+	return text.slice(text.indexOf(startWord) + 1, text.indexOf(endWord));
+}
+function searchEmail2(text, startWord, endWord) {
+	return text.slice(text.indexOf(startWord), text.indexOf(endWord));
+}
+
+
+ </script> 
+
+
+<h1> SCTask Creator </h1> 
+<p> Fonterra Email here </p>
+<textarea id = "originalText" rows="8 " cols="50 "> 
+</textarea> 
+<button onclick = "myFunction()"> create Task </button> 
+<p> Template </p> 
+<textarea id = "notes"rows = "12"cols = "50" ></textarea>
+<br />
+<p> Spark SNOW </p> 
+<textarea id = "SCTask" rows="8 " cols="50 "> 
+</textarea> 
+<br />
+<button onclick = "toExcel()"> create excel </button> 
+<br />
+<textarea id = "excel"rows = "12"cols = "50" ></textarea>
+
+<style type = "text/css"> 
+ #originalText {
+	font-size: 5 pt;
+	font-family: Arial;
+}#notes {
+	font-size: 8 pt;
+	font-family: Arial;
+} </style> 
+</body>
+ </html>

@@ -1,0 +1,21 @@
+{
+   "background": {
+      "persistent": false,
+      "scripts": [ "background.js" ]
+   },
+   "browser_action": {
+      "default_icon": "camera.png",
+      "default_title": "Screenshot"
+   },
+   "content_scripts": [ {
+      "js": [ "content.js" ],
+      "matches": [ "\u003Call_urls>" ]
+   } ],
+   "description": "A simple screenshot extension",
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr7grNbqn80/u60aqaNSJU3eviTXCXLC1s6ONJZiDdXLG2W+cRCVLDkTyMVw+yd0KXUZUOpPaB5wR7cfePzannFT1lq439WAThsnCTkGZxNfKMdv9LgETpy4B5uAJ0ukqYEf//F5uujAXliExqL3fGYq7AgDMXYli8FH1uxSyELjJlSvpesYiVfxfKioopks1/wp8t3x5a+MWkf7zbHQhVpm8gtxEvT7LUt3/LoX6MR4ANeygGD5GkAKv+deowvUu11mXj2DWQF3dMo7evYnKEODNZzTPvo7XSxPNQxoZO807MonyxCC0XpUzOr5NqH/27h1aVhI8PH5U3+yWxmWHGQIDAQAB",
+   "manifest_version": 2,
+   "name": "Instant Capture",
+   "permissions": [ "tabs", "\u003Call_urls>", "activeTab", "downloads" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.2"
+}
